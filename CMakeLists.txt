@@ -38,10 +38,23 @@ endif()
 set(LIBS_SRC
     libs/IRentalSystem.cpp
     libs/LibraryRentalSystem.cpp
+    libs/IProductManager.cpp
+    libs/LibProductManager.cpp
+    libs/IProduct.cpp
+    libs/IDocument.cpp
+    libs/Book.cpp
+    libs/IClient.cpp
+    libs/LibClient.cpp
+    libs/IClientManager.cpp
+    libs/LibClientManager.cpp
 )
 
 set(TESTS_SRC
     tests/LibraryRentalSystem-ut.cpp
+    tests/LibProductManager-ut.cpp
+    tests/Book-ut.cpp
+    tests/LibClient-ut.cpp
+    tests/LibClientManager-ut.cpp
 )
 
 set(COMPILE_FLAGS
