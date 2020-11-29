@@ -81,12 +81,12 @@ target_compile_options(${PROJECT_NAME} PUBLIC ${COMPILE_FLAGS})
 
 #ADD EXECUTABLE FILES - TESTS_SRC
 
-add_executable(${PROJECT_NAME}-ut tests/testsMain.cpp)
+add_executable(${PROJECT_NAME}-ut tests/testsMain.cpp ${TESTS_SRC})
 
 target_link_libraries(${PROJECT_NAME}-ut PUBLIC ${PROJECT_NAME}-lib)
 target_compile_options(${PROJECT_NAME}-ut PUBLIC ${COMPILE_FLAGS})
 
 #ENABLE TESTING
 
-add_test(NAME {PROJECT_NAME}-tests COMMAND {PROJECT_NAME}-tests)
+add_test(${PROJECT_NAME}-tests ${PROJECT_NAME}-ut)
 enable_testing()
