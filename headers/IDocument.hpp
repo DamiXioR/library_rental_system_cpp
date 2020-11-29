@@ -5,8 +5,10 @@
 class IDocument : IProduct {
 public:
     IDocument(std::string title, std::string author, std::string literatureType, std::string publisher, std::string yearOfProduction);
-    IDocument& operator=(IDocument anotherIDocument);
-    ~IDocument() = default;
+    IDocument(IDocument& anotherIDocument) = delete;
+    IDocument& operator=(IDocument anotherIDocument) = delete;
+    IDocument& operator=(IDocument&& anotherIDocument) = delete;
+    virtual ~IDocument();
     std::string getTitle()
     {
         return title_;

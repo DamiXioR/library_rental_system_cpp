@@ -7,12 +7,4 @@ IProduct::IProduct()
     productId_++;
 }
 
-IProduct& IProduct::operator=(IProduct anotherProduct)
-{
-    productId_++;
-    return *this;
-}
-
-IProduct::~IProduct()
-{
-}
+IProduct::~IProduct() {}

@@ -9,12 +9,4 @@ IDocument::IDocument(std::string title, std::string author, std::string literatu
 {
 }
 
-IDocument& IDocument::operator=(IDocument anotherIDocument){
-    title_ = anotherIDocument.getTitle();
-    author_ = anotherIDocument.getAuthor();
-    literatureType_ = anotherIDocument.getLiteratureType();
-    publisher_ = anotherIDocument.getPublisher();
-    yearOfProduction_ = anotherIDocument.getYearOfProduction();
-
-    return *this;
-}
+IDocument::~IDocument() {}

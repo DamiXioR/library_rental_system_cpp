@@ -3,7 +3,9 @@
 class IProduct {
 public:
     IProduct();
-    IProduct& operator=(IProduct anotherProduct);
+    IProduct(IProduct& anotherProduct) = delete;
+    IProduct& operator=(IProduct anotherProduct) = delete;
+    IProduct& operator=(IProduct&& anotherProduct) = delete;
     virtual ~IProduct();
 
     static unsigned productId_;

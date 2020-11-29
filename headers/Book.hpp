@@ -4,4 +4,8 @@
 class Book : public IDocument {
 public:
     Book(std::string title, std::string author, std::string literatureType, std::string publisher, std::string yearOfProduction);
+    Book(Book& anotherBook) = delete;
+    Book& operator=(Book anotherBook) = delete;
+    Book& operator=(Book&& anotherBook) = delete;
+    ~Book() = default;
 };
