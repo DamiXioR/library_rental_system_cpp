@@ -16,4 +16,5 @@ TEST_F(BookTest, ShouldReturnBookFeatures)
     Book* diunaBook = new Book(titleDiuna, authorFrankHerbert, typeSciFi, publisherChiltonBooks, year1965);
     everyBook = diunaBook;
     EXPECT_EQ(diunaBook->getTitle(), titleDiuna);
+    delete diunaBook;
 }
