@@ -1,5 +1,5 @@
 #pragma once
-#include <IDocument.hpp>
+#include "IDocument.hpp"
 
 class Book : public IDocument {
 };
