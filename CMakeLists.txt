@@ -47,6 +47,8 @@ set(LIBS_SRC
     libs/LibClient.cpp
     libs/IClientManager.cpp
     libs/LibClientManager.cpp
+    libs/IFileHandler.cpp
+    libs/LibFileHandler.cpp
 )
 
 set(TESTS_SRC
@@ -55,6 +57,7 @@ set(TESTS_SRC
     tests/Book-ut.cpp
     tests/LibClient-ut.cpp
     tests/LibClientManager-ut.cpp
+    tests/LibFileHandler-ut.cpp
 )
 
 set(COMPILE_FLAGS
