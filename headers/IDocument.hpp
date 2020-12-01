@@ -9,23 +9,23 @@ public:
     IDocument& operator=(IDocument anotherIDocument) = delete;
     IDocument& operator=(IDocument&& anotherIDocument) = delete;
     virtual ~IDocument();
-    std::string getTitle()
+    std::string getTitle() const
     {
         return title_;
     }
-    std::string getAuthor()
+    std::string getAuthor() const
     {
         return author_;
     }
-    std::string getLiteratureType()
+    std::string getLiteratureType() const
     {
         return literatureType_;
     }
-    std::string getPublisher()
+    std::string getPublisher() const
     {
         return publisher_;
     }
-    std::string getYearOfProduction()
+    std::string getYearOfProduction() const
     {
         return yearOfProduction_;
     }
