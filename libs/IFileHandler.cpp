@@ -1,10 +1,11 @@
 #include "IFileHandler.hpp"
 #include <exception>
+#include <iostream>
 
 IFileHandler::IFileHandler(std::string fileNameWithExtension)
     : fileNameWithExtension_(fileNameWithExtension)
 {
-    workingFile_ = new std::fstream(fileNameWithExtension_);
+    workingFile_ = new std::fstream(fileNameWithExtension_, std::fstream::in | std::fstream::out | std::fstream::app);
 
     try {
         if (!workingFile_->is_open()) {
@@ -19,5 +20,24 @@ IFileHandler::IFileHandler(std::string fileNameWithExtension)
 IFileHandler::~IFileHandler()
 {
     workingFile_->close();
+    delete readFiles_;
     delete workingFile_;
+}
+
+void IFileHandler::readFromFile()
+{
+    workingFile_->clear();
+    workingFile_->seekg(0);
+
+    std::stringstream* readData = new std::stringstream();
+    std::string temporyLineData{};
+    while (std::getline(*workingFile_, temporyLineData)) {
+        *readData << temporyLineData;
+    }
+    readFiles_ = readData;
+}
+
+void IFileHandler::writeInFile(std::stringstream* dataToSaveInFile)
+{
+    *workingFile_ << dataToSaveInFile->rdbuf();
 }

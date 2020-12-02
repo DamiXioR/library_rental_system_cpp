@@ -20,7 +20,7 @@ TEST_F(LibFileHandlerTest, ShouldNotThrowExceptionWhenFileIsOpen)
     EXPECT_NO_THROW(LibFileHandler{fileName3});
 }
 
-TEST_F(LibFileHandlerTest, ShouldreturnLibFileHandlerFeatures)
+TEST_F(LibFileHandlerTest, ShouldReturnLibFileHandlerFeatures)
 {
     LibFileHandler* firstFile = new LibFileHandler(fileName);
     LibFileHandler* secondFile = new LibFileHandler(fileName2);
