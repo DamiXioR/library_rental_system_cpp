@@ -26,8 +26,9 @@ IFileHandler::~IFileHandler()
 
 void IFileHandler::readFromFile()
 {
+    unsigned startPoint = 0;
     workingFile_->clear();
-    workingFile_->seekg(0);
+    workingFile_->seekg(startPoint);
 
     std::stringstream* readData = new std::stringstream();
     std::string temporyLineData{};
