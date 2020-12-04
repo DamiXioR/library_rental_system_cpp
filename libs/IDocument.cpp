@@ -12,22 +12,22 @@ IDocument::IDocument(std::string title, std::string author, std::string literatu
 }
 
 IDocument::IDocument(IDocument&& anotherIDocument)
+    : title_(std::move(anotherIDocument.getTitle())),
+      author_(std::move(anotherIDocument.getAuthor())),
+      literatureType_(std::move(anotherIDocument.getLiteratureType())),
+      publisher_(std::move(anotherIDocument.getPublisher())),
+      yearOfProduction_(std::move(anotherIDocument.getYearOfProduction())),
+      documentId_(std::move(anotherIDocument.getDocumentId()))
 {
-    title_ = anotherIDocument.getTitle();
-    author_ = anotherIDocument.getAuthor();
-    literatureType_ = anotherIDocument.getLiteratureType();
-    publisher_ = anotherIDocument.getPublisher();
-    yearOfProduction_ = anotherIDocument.getYearOfProduction();
-    documentId_ = anotherIDocument.getDocumentId();
 }
 
 IDocument& IDocument::operator=(IDocument&& anotherIDocument)
 {
-    title_ = anotherIDocument.getTitle();
-    author_ = anotherIDocument.getAuthor();
-    literatureType_ = anotherIDocument.getLiteratureType();
-    publisher_ = anotherIDocument.getPublisher();
-    yearOfProduction_ = anotherIDocument.getYearOfProduction();
-    documentId_ = anotherIDocument.getDocumentId();
+    title_ = std::move(anotherIDocument.getTitle());
+    author_ = std::move(anotherIDocument.getAuthor());
+    literatureType_ = std::move(anotherIDocument.getLiteratureType());
+    publisher_ = std::move(anotherIDocument.getPublisher());
+    yearOfProduction_ = std::move(anotherIDocument.getYearOfProduction());
+    documentId_ = std::move(anotherIDocument.getDocumentId());
     return *this;
 }
