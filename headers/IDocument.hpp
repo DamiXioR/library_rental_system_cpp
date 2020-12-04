@@ -6,9 +6,11 @@ class IDocument : IProduct {
 public:
     IDocument(std::string title, std::string author, std::string literatureType, std::string publisher, std::string yearOfProduction);
     IDocument(IDocument& anotherIDocument) = delete;
-    IDocument& operator=(IDocument anotherIDocument) = delete;
-    IDocument& operator=(IDocument&& anotherIDocument) = delete;
-    virtual ~IDocument();
+    IDocument(IDocument&& anotherIDocument);
+    IDocument& operator=(IDocument& anotherIDocument) = delete;
+    IDocument& operator=(IDocument&& anotherIDocument);
+    ~IDocument() = default;
+
     std::string getTitle() const
     {
         return title_;
@@ -29,6 +31,10 @@ public:
     {
         return yearOfProduction_;
     }
+    unsigned getDocumentId() const
+    {
+        return documentId_;
+    }
 
 private:
     std::string title_{};
@@ -36,4 +42,5 @@ private:
     std::string literatureType_{};
     std::string publisher_{};
     std::string yearOfProduction_{};
+    unsigned documentId_{};
 };

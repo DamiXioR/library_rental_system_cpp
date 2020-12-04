@@ -6,5 +6,3 @@ IProduct::IProduct()
 {
     productId_++;
 }
-
-IProduct::~IProduct() {}
