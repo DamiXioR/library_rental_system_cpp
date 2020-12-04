@@ -7,6 +7,7 @@ class IFileHandler {
 public:
     IFileHandler(std::string fileName);
     IFileHandler(IFileHandler& anotherFile) = delete;
+    IFileHandler(IFileHandler&& anotherFile) = delete;
     IFileHandler& operator=(IFileHandler anotherFile) = delete;
     IFileHandler& operator=(IFileHandler&& anotherFile) = delete;
     virtual ~IFileHandler();

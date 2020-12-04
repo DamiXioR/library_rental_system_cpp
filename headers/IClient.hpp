@@ -5,7 +5,8 @@ class IClient {
 public:
     IClient(std::string name, std::string surname, std::string address);
     IClient(IClient& anotherClient) = delete;
-    IClient& operator=(IClient anotherClient) = delete;
+    IClient(IClient&& anotherClient) = delete;
+    IClient& operator=(IClient& anotherClient) = delete;
     IClient& operator=(IClient&& anotherClient) = delete;
     virtual ~IClient() {}
 
