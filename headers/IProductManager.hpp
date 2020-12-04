@@ -7,7 +7,7 @@ class IProductManager {
 public:
     IProductManager(std::vector<IProduct>* productList);
     IProductManager(IProductManager& anotherProductManager) = delete;
-    IProductManager& operator=(IProductManager anotherProductManager) = delete;
+    IProductManager& operator=(IProductManager& anotherProductManager) = delete;
     IProductManager& operator=(IProductManager&& anotherProductManager) = delete;
     virtual ~IProductManager();
 

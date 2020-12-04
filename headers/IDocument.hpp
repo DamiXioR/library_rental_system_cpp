@@ -5,9 +5,9 @@
 class IDocument : IProduct {
 public:
     IDocument(std::string title, std::string author, std::string literatureType, std::string publisher, std::string yearOfProduction);
-    IDocument(IDocument& anotherIDocument) = delete;
+    IDocument(IDocument& anotherIDocument) = default;
     IDocument(IDocument&& anotherIDocument);
-    IDocument& operator=(IDocument& anotherIDocument) = delete;
+    IDocument& operator=(IDocument& anotherIDocument) = default;
     IDocument& operator=(IDocument&& anotherIDocument);
     ~IDocument() = default;
 

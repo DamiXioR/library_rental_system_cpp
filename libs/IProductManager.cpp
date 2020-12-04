@@ -14,17 +14,16 @@ IProductManager::~IProductManager()
 
 void IProductManager::addProduct(IProduct* libProduct)
 {
-    productList_->emplace_back(std::move(*libProduct));
+    productList_->emplace_back(*libProduct);
 }
 void IProductManager::removeProduct(IProduct* libProduct)
 {
-    //TO DO COPY CTOR FOR IPRODUCT
-    /*
     if (!productList_->empty()) {
-        auto foundedAtPosition = std::find(productList_->begin(), productList_->end(), libProduct);
+        auto foundedAtPosition = std::find_if(productList_->begin(), productList_->end(), [libProduct](IProduct everyProduct) {
+            return (&everyProduct == libProduct);
+        });
         if (foundedAtPosition != productList_->end()) {
             productList_->erase(foundedAtPosition);
         }
     }
-    */
 }
