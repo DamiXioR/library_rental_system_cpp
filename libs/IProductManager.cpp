@@ -1,6 +1,6 @@
 #include "IProductManager.hpp"
+
 #include <algorithm>
-#include <utility>
 
 IProductManager::IProductManager(std::vector<IProduct*>* productList)
     : productList_(productList)

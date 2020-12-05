@@ -14,6 +14,7 @@ public:
 
     virtual void addProduct(IProduct* libProduct);
     virtual void removeProduct(IProduct* libProduct);
+    virtual void checkProductList() = 0;
     std::vector<IProduct*>* getProductList() const
     {
         return productList_;

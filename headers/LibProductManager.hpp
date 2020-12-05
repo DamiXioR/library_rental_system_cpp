@@ -9,4 +9,6 @@ public:
     LibProductManager& operator=(LibProductManager& anotherLibProductManager) = delete;
     LibProductManager& operator=(LibProductManager&& anotherLibProductManager) = delete;
     ~LibProductManager();
+
+    void checkProductList();
 };
