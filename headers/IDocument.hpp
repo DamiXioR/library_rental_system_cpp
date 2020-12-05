@@ -2,7 +2,7 @@
 #include <string>
 #include "IProduct.hpp"
 
-class IDocument : IProduct {
+class IDocument : public IProduct {
 public:
     IDocument(std::string title, std::string author, std::string literatureType, std::string publisher, std::string yearOfProduction);
     IDocument(IDocument& anotherIDocument) = default;
