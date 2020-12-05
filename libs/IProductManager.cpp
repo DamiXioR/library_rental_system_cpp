@@ -2,7 +2,7 @@
 #include <algorithm>
 #include <utility>
 
-IProductManager::IProductManager(std::vector<IProduct>* productList)
+IProductManager::IProductManager(std::vector<IProduct*>* productList)
     : productList_(productList)
 {
 }
@@ -14,13 +14,13 @@ IProductManager::~IProductManager()
 
 void IProductManager::addProduct(IProduct* libProduct)
 {
-    productList_->emplace_back(*libProduct);
+    productList_->emplace_back(libProduct);
 }
 void IProductManager::removeProduct(IProduct* libProduct)
 {
     if (!productList_->empty()) {
-        auto foundedAtPosition = std::find_if(productList_->begin(), productList_->end(), [libProduct](IProduct everyProduct) {
-            return (&everyProduct == libProduct);
+        auto foundedAtPosition = std::find_if(productList_->begin(), productList_->end(), [libProduct](IProduct* everyProduct) {
+            return (everyProduct == libProduct);
         });
         if (foundedAtPosition != productList_->end()) {
             productList_->erase(foundedAtPosition);
