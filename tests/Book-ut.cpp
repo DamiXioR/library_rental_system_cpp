@@ -89,7 +89,7 @@ TEST_F(BookTest, ShouldSetProductIdAndCoopWithBookCtors)
 TEST_F(BookTest, ShouldReturnBookFeatures)
 {
     Book* diunaBook = new Book(idDiuna, titleDiuna, authorFrankHerbert, typeSciFi, publisherChiltonBooks, year1965);
-    EXPECT_EQ(diunaBook->getDocumentId(), idDiuna);
+    EXPECT_EQ(diunaBook->getIndividualProductId(), idDiuna);
     EXPECT_EQ(diunaBook->getTitle(), titleDiuna);
     EXPECT_EQ(diunaBook->getAuthor(), authorFrankHerbert);
     EXPECT_EQ(diunaBook->getLiteratureType(), typeSciFi);
@@ -99,7 +99,7 @@ TEST_F(BookTest, ShouldReturnBookFeatures)
     delete diunaBook;
 
     Book* hyperionBook = new Book(idHyperion, titleHyperion, authorDanSimmons, typeSciFi, publisherAmber, year1989);
-    EXPECT_EQ(hyperionBook->getDocumentId(), idHyperion);
+    EXPECT_EQ(hyperionBook->getIndividualProductId(), idHyperion);
     EXPECT_EQ(hyperionBook->getTitle(), titleHyperion);
     EXPECT_EQ(hyperionBook->getAuthor(), authorDanSimmons);
     EXPECT_EQ(hyperionBook->getLiteratureType(), typeSciFi);
@@ -119,14 +119,14 @@ TEST_F(BookTest, ShouldInitObjectWhenUsingMoveCtor)
     Book diunaBook = Book(idDiuna, titleDiuna, authorFrankHerbert, typeSciFi, publisherChiltonBooks, year1965);
     Book secondDiunaBook = std::move(diunaBook);
 
-    EXPECT_EQ(diunaBook.getDocumentId(), idDiuna);
+    EXPECT_EQ(diunaBook.getIndividualProductId(), idDiuna);
     EXPECT_EQ(diunaBook.getTitle(), titleDiuna);
     EXPECT_EQ(diunaBook.getAuthor(), authorFrankHerbert);
     EXPECT_EQ(diunaBook.getLiteratureType(), typeSciFi);
     EXPECT_EQ(diunaBook.getPublisher(), publisherChiltonBooks);
     EXPECT_EQ(diunaBook.getYearOfProduction(), year1965);
 
-    EXPECT_EQ(secondDiunaBook.getDocumentId(), idDiuna);
+    EXPECT_EQ(secondDiunaBook.getIndividualProductId(), idDiuna);
     EXPECT_EQ(secondDiunaBook.getTitle(), titleDiuna);
     EXPECT_EQ(secondDiunaBook.getAuthor(), authorFrankHerbert);
     EXPECT_EQ(secondDiunaBook.getLiteratureType(), typeSciFi);
@@ -143,14 +143,14 @@ TEST_F(BookTest, ShouldInitObjectWhenUsingMoveAsignmentOperator)
     Book oldDestroyedBook = Book(idHyperion, titleHyperion, authorDanSimmons, typeSciFi, publisherAmber, year1989);
     oldDestroyedBook = std::move(diunaBook);
 
-    EXPECT_EQ(diunaBook.getDocumentId(), idDiuna);
+    EXPECT_EQ(diunaBook.getIndividualProductId(), idDiuna);
     EXPECT_EQ(diunaBook.getTitle(), titleDiuna);
     EXPECT_EQ(diunaBook.getAuthor(), authorFrankHerbert);
     EXPECT_EQ(diunaBook.getLiteratureType(), typeSciFi);
     EXPECT_EQ(diunaBook.getPublisher(), publisherChiltonBooks);
     EXPECT_EQ(diunaBook.getYearOfProduction(), year1965);
 
-    EXPECT_EQ(oldDestroyedBook.getDocumentId(), idDiuna);
+    EXPECT_EQ(oldDestroyedBook.getIndividualProductId(), idDiuna);
     EXPECT_EQ(oldDestroyedBook.getTitle(), titleDiuna);
     EXPECT_EQ(oldDestroyedBook.getAuthor(), authorFrankHerbert);
     EXPECT_EQ(oldDestroyedBook.getLiteratureType(), typeSciFi);
@@ -166,14 +166,14 @@ TEST_F(BookTest, ShouldInitObjectWhenUsingMoveCtorWhenInitWithPointer)
     Book* diunaBook = new Book(idDiuna, titleDiuna, authorFrankHerbert, typeSciFi, publisherChiltonBooks, year1965);
     Book* oldDestroyedBook = new Book(std::move(*diunaBook));
 
-    EXPECT_EQ(diunaBook->getDocumentId(), idDiuna);
+    EXPECT_EQ(diunaBook->getIndividualProductId(), idDiuna);
     EXPECT_EQ(diunaBook->getTitle(), titleDiuna);
     EXPECT_EQ(diunaBook->getAuthor(), authorFrankHerbert);
     EXPECT_EQ(diunaBook->getLiteratureType(), typeSciFi);
     EXPECT_EQ(diunaBook->getPublisher(), publisherChiltonBooks);
     EXPECT_EQ(diunaBook->getYearOfProduction(), year1965);
 
-    EXPECT_EQ(oldDestroyedBook->getDocumentId(), idDiuna);
+    EXPECT_EQ(oldDestroyedBook->getIndividualProductId(), idDiuna);
     EXPECT_EQ(oldDestroyedBook->getTitle(), titleDiuna);
     EXPECT_EQ(oldDestroyedBook->getAuthor(), authorFrankHerbert);
     EXPECT_EQ(oldDestroyedBook->getLiteratureType(), typeSciFi);
@@ -193,14 +193,14 @@ TEST_F(BookTest, ShouldInitObjectWhenUsingMoveAsignmentOperatorWhenInitWithPoint
     Book* oldDestroyedBook = new Book(idHyperion, titleHyperion, authorDanSimmons, typeSciFi, publisherAmber, year1989);
     *oldDestroyedBook = std::move(*diunaBook);
 
-    EXPECT_EQ(diunaBook->getDocumentId(), idDiuna);
+    EXPECT_EQ(diunaBook->getIndividualProductId(), idDiuna);
     EXPECT_EQ(diunaBook->getTitle(), titleDiuna);
     EXPECT_EQ(diunaBook->getAuthor(), authorFrankHerbert);
     EXPECT_EQ(diunaBook->getLiteratureType(), typeSciFi);
     EXPECT_EQ(diunaBook->getPublisher(), publisherChiltonBooks);
     EXPECT_EQ(diunaBook->getYearOfProduction(), year1965);
 
-    EXPECT_EQ(oldDestroyedBook->getDocumentId(), idDiuna);
+    EXPECT_EQ(oldDestroyedBook->getIndividualProductId(), idDiuna);
     EXPECT_EQ(oldDestroyedBook->getTitle(), titleDiuna);
     EXPECT_EQ(oldDestroyedBook->getAuthor(), authorFrankHerbert);
     EXPECT_EQ(oldDestroyedBook->getLiteratureType(), typeSciFi);

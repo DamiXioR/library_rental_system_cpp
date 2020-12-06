@@ -11,8 +11,14 @@ public:
     IProduct& operator=(IProduct&& anotherProduct) = default;
     virtual ~IProduct() = default;
 
+    std::string getIndividualProductId() const
+    {
+        return individualProductId_;
+    }
+
     static unsigned productId_;
 
-private:
+protected:
     void setProductId(unsigned productId);
+    std::string individualProductId_{};
 };

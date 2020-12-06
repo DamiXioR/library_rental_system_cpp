@@ -32,10 +32,6 @@ public:
     {
         return yearOfProduction_;
     }
-    std::string getDocumentId() const
-    {
-        return documentId_;
-    }
 
 private:
     std::string title_{};
@@ -43,5 +39,4 @@ private:
     std::string literatureType_{};
     std::string publisher_{};
     std::string yearOfProduction_{};
-    std::string documentId_{};
 };

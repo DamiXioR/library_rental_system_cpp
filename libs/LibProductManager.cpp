@@ -20,16 +20,9 @@ void LibProductManager::addNewBook(std::string title, std::string author, std::s
 
 void LibProductManager::removeBook(std::string productId)
 {
-    IProduct* foundedProduct = nullptr;
-    for_each(productList_->begin(), productList_->end(), [productId, &foundedProduct](IProduct* everyProduct) {
-        if (dynamic_cast<Book*>(everyProduct)->getDocumentId() == productId) {
-            foundedProduct = everyProduct;
-        }
-    });
-
     if (!productList_->empty()) {
-        auto foundedAtPosition = std::find_if(productList_->begin(), productList_->end(), [productId, foundedProduct](IProduct* everyProduct) {
-            return (everyProduct == foundedProduct);
+        auto foundedAtPosition = std::find_if(productList_->begin(), productList_->end(), [productId](IProduct* everyProduct) {
+            return (everyProduct->getIndividualProductId() == productId);
         });
         if (foundedAtPosition != productList_->end()) {
             delete *foundedAtPosition;
