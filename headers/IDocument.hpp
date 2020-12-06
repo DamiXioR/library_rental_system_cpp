@@ -5,9 +5,10 @@
 class IDocument : public IProduct {
 public:
     IDocument(std::string title, std::string author, std::string literatureType, std::string publisher, std::string yearOfProduction);
-    IDocument(IDocument& anotherIDocument) = default;
+    IDocument(std::string documentId, std::string title, std::string author, std::string literatureType, std::string publisher, std::string yearOfProduction);
+    IDocument(IDocument& anotherIDocument);
     IDocument(IDocument&& anotherIDocument);
-    IDocument& operator=(IDocument& anotherIDocument) = default;
+    IDocument& operator=(IDocument& anotherIDocument);
     IDocument& operator=(IDocument&& anotherIDocument);
     ~IDocument() = default;
 
@@ -31,7 +32,7 @@ public:
     {
         return yearOfProduction_;
     }
-    unsigned getDocumentId() const
+    std::string getDocumentId() const
     {
         return documentId_;
     }
@@ -42,5 +43,5 @@ private:
     std::string literatureType_{};
     std::string publisher_{};
     std::string yearOfProduction_{};
-    unsigned documentId_{};
+    std::string documentId_{};
 };

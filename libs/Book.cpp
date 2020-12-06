@@ -8,3 +8,13 @@ Book::Book(std::string title, std::string author, std::string literatureType, st
                 yearOfProduction)
 {
 }
+
+Book::Book(std::string bookId, std::string title, std::string author, std::string literatureType, std::string publisher, std::string yearOfProduction)
+    : IDocument(bookId,
+                title,
+                author,
+                literatureType,
+                publisher,
+                yearOfProduction)
+{
+}

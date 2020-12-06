@@ -2,7 +2,14 @@
 
 unsigned IProduct::productId_ = 0;
 
-IProduct::IProduct()
+IProduct::IProduct(bool isNewProduct)
 {
-    productId_++;
+    if (isNewProduct) {
+        productId_++;
+    }
+}
+
+void IProduct::setProductId(unsigned productId)
+{
+    productId_ = productId;
 }
