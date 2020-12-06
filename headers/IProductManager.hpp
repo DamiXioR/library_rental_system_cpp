@@ -1,5 +1,6 @@
 #pragma once
 
+#include <string>
 #include <vector>
 #include "IProduct.hpp"
 
@@ -12,14 +13,12 @@ public:
     IProductManager& operator=(IProductManager&& anotherProductManager) = delete;
     virtual ~IProductManager();
 
-    virtual void addProduct(IProduct* libProduct);
-    virtual void removeProduct(IProduct* libProduct);
     virtual void checkProductList() = 0;
     std::vector<IProduct*>* getProductList() const
     {
         return productList_;
     }
 
-private:
+protected:
     std::vector<IProduct*>* productList_{};
 };

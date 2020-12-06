@@ -13,6 +13,31 @@ LibProductManager::~LibProductManager()
 {
 }
 
+void LibProductManager::addNewBook(std::string title, std::string author, std::string literatureType, std::string publisher, std::string yearOfProduction)
+{
+    productList_->emplace_back(new Book(title, author, literatureType, publisher, yearOfProduction));
+}
+
+void LibProductManager::removeBook(std::string productId)
+{
+    IProduct* foundedProduct = nullptr;
+    for_each(productList_->begin(), productList_->end(), [productId, &foundedProduct](IProduct* everyProduct) {
+        if (dynamic_cast<Book*>(everyProduct)->getDocumentId() == productId) {
+            foundedProduct = everyProduct;
+        }
+    });
+
+    if (!productList_->empty()) {
+        auto foundedAtPosition = std::find_if(productList_->begin(), productList_->end(), [productId, foundedProduct](IProduct* everyProduct) {
+            return (everyProduct == foundedProduct);
+        });
+        if (foundedAtPosition != productList_->end()) {
+            delete *foundedAtPosition;
+            productList_->erase(foundedAtPosition);
+        }
+    }
+}
+
 void LibProductManager::checkProductList()
 {
     std::for_each(getProductList()->begin(), getProductList()->end(), [](IProduct* everyProduct) {
