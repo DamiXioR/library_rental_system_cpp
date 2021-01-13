@@ -1,0 +1,30 @@
+@startuml
+    class IClient {
+        --
+        +IClient(std::string name, std::string surname, std::string address);
+        +IClient(std::string clientIndividualId, std::string name, std::string surname, std::string address);
+        +virtual ~IClient() = default;
+        ..
+        +std::string getName() const;
+        +std::string getSurname() const;
+        +std::string getAddress() const;
+        +std::string getClientIndividualId() const;
+        ..
+        +static unsigned clientId_;
+        --
+        -std::string name_{};
+        -std::string surname_{};
+        -std::string address_{};
+        -std::string clientIndividualId_{};
+    }
+
+    class LibClient {
+        --
+        +LibClient(std::string name, std::string surname, std::string address);
+        +LibClient(std::string clientIndividualId, std::string name, std::string surname, std::string address);
+        +~LibClient() = default;
+    }
+
+    LibClient -> IClient
+
+@enduml

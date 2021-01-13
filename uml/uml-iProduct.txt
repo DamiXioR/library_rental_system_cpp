@@ -1,0 +1,36 @@
+@startuml
+    class IProduct {
+        --
+        +IProduct(bool isNewProduct);
+        +virtual ~IProduct() = default;
+        ..
+        +std::string getIndividualProductId() const;
+        +static unsigned productId_;
+        --
+        #void setProductId(unsigned productId);
+        ..
+        #std::string individualProductId_{};
+    }
+
+    class Book {
+        --
+        +Book(std::string title, std::string author, std::string literatureType, std::string publisher, std::string yearOfProduction);
+        +Book(std::string documentId, std::string title, std::string author, std::string literatureType, std::string publisher, std::string yearOfProduction);
+        +~Book() = default;
+        ..
+        +std::string getTitle() const;
+        +std::string getAuthor() const;
+        +std::string getLiteratureType() const;
+        +std::string getPublisher() const;
+        +std::string getYearOfProduction() const;
+        --
+        -std::string title_{};
+        -std::string author_{};
+        -std::string literatureType_{};
+        -std::string publisher_{};
+        -std::string yearOfProduction_{};
+    }
+
+    Book -> IProduct
+
+@enduml

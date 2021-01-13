@@ -1,0 +1,26 @@
+@startuml
+    class IFileHandler {
+        --
+        +IFileHandler(std::string fileName);
+        +virtual ~IFileHandler();
+        ..
+        +std::string getFileNameWithExtension() const;
+        +std::fstream* getWorkingFile() const;
+        +std::stringstream* getReadFromFile() const
+        +void readFromFile();
+        +void writeInFile(std::stringstream* dataToSaveInFile);
+        --
+        -std::string fileNameWithExtension_{};
+        -std::fstream* workingFile_{};
+        -std::stringstream* readFiles_{};
+    }
+
+    class LibFileHandler {
+        --
+        +LibFileHandler(std::string fileName);
+        +virtual ~LibFileHandler() = default;
+    }
+
+    LibFileHandler -> IFileHandler
+
+@enduml
