@@ -41,7 +41,6 @@ set(LIBS_SRC
     libs/IProductManager.cpp
     libs/LibProductManager.cpp
     libs/IProduct.cpp
-    libs/IDocument.cpp
     libs/Book.cpp
     libs/IClient.cpp
     libs/LibClient.cpp

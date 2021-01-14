@@ -27,12 +27,12 @@ public:
 
     void resetProductId()
     {
-        IDocument::productId_ = 0;
+        Book::productId_ = 0;
     }
 
     void setProductId(unsigned productIdToSet)
     {
-        IDocument::productId_ = productIdToSet;
+        Book::productId_ = productIdToSet;
     }
 };
 
@@ -40,15 +40,15 @@ TEST_F(BookTest, ShouldCreateBookWithoutIncreaseProductId)
 {
     resetProductId();
     Book* diunaBook = new Book(idDiuna, titleDiuna, authorFrankHerbert, typeSciFi, publisherChiltonBooks, year1965);
-    EXPECT_EQ(IDocument::productId_, productsIdCounter[0]);
+    EXPECT_EQ(Book::productId_, productsIdCounter[0]);
     delete diunaBook;
 
     Book* hyperionBook = new Book(idHyperion, titleHyperion, authorDanSimmons, typeSciFi, publisherAmber, year1989);
-    EXPECT_EQ(IDocument::productId_, productsIdCounter[0]);
+    EXPECT_EQ(Book::productId_, productsIdCounter[0]);
     delete hyperionBook;
 
     diunaBook = new Book(idDiuna, titleDiuna, authorFrankHerbert, typeSciFi, publisherChiltonBooks, year1965);
-    EXPECT_EQ(IDocument::productId_, productsIdCounter[0]);
+    EXPECT_EQ(Book::productId_, productsIdCounter[0]);
     delete diunaBook;
 }
 
@@ -56,15 +56,15 @@ TEST_F(BookTest, ShouldCreateBookWithIncreaseProductId)
 {
     resetProductId();
     Book* diunaBook = new Book(titleDiuna, authorFrankHerbert, typeSciFi, publisherChiltonBooks, year1965);
-    EXPECT_EQ(IDocument::productId_, productsIdCounter[1]);
+    EXPECT_EQ(Book::productId_, productsIdCounter[1]);
     delete diunaBook;
 
     Book* hyperionBook = new Book(titleHyperion, authorDanSimmons, typeSciFi, publisherAmber, year1989);
-    EXPECT_EQ(IDocument::productId_, productsIdCounter[2]);
+    EXPECT_EQ(Book::productId_, productsIdCounter[2]);
     delete hyperionBook;
 
     diunaBook = new Book(titleDiuna, authorFrankHerbert, typeSciFi, publisherChiltonBooks, year1965);
-    EXPECT_EQ(IDocument::productId_, productsIdCounter[3]);
+    EXPECT_EQ(Book::productId_, productsIdCounter[3]);
     delete diunaBook;
 }
 
@@ -74,15 +74,15 @@ TEST_F(BookTest, ShouldSetProductIdAndCoopWithBookCtors)
     setProductId(productsIdCounter[7]);
 
     Book* diunaBook = new Book(titleDiuna, authorFrankHerbert, typeSciFi, publisherChiltonBooks, year1965);
-    EXPECT_EQ(IDocument::productId_, productsIdCounter[8]);
+    EXPECT_EQ(Book::productId_, productsIdCounter[8]);
     delete diunaBook;
 
     Book* hyperionBook = new Book(titleHyperion, authorDanSimmons, typeSciFi, publisherAmber, year1989);
-    EXPECT_EQ(IDocument::productId_, productsIdCounter[9]);
+    EXPECT_EQ(Book::productId_, productsIdCounter[9]);
     delete hyperionBook;
 
     diunaBook = new Book(idDiuna, titleDiuna, authorFrankHerbert, typeSciFi, publisherChiltonBooks, year1965);
-    EXPECT_EQ(IDocument::productId_, productsIdCounter[9]);
+    EXPECT_EQ(Book::productId_, productsIdCounter[9]);
     delete diunaBook;
 }
 
@@ -133,7 +133,7 @@ TEST_F(BookTest, ShouldInitObjectWhenUsingMoveCtor)
     EXPECT_EQ(secondDiunaBook.getPublisher(), publisherChiltonBooks);
     EXPECT_EQ(secondDiunaBook.getYearOfProduction(), year1965);
 
-    EXPECT_EQ(IDocument::productId_, productsIdCounter[0]);
+    EXPECT_EQ(Book::productId_, productsIdCounter[0]);
 }
 
 TEST_F(BookTest, ShouldInitObjectWhenUsingMoveAsignmentOperator)
@@ -157,7 +157,7 @@ TEST_F(BookTest, ShouldInitObjectWhenUsingMoveAsignmentOperator)
     EXPECT_EQ(oldDestroyedBook.getPublisher(), publisherChiltonBooks);
     EXPECT_EQ(oldDestroyedBook.getYearOfProduction(), year1965);
 
-    EXPECT_EQ(IDocument::productId_, productsIdCounter[0]);
+    EXPECT_EQ(Book::productId_, productsIdCounter[0]);
 }
 
 TEST_F(BookTest, ShouldInitObjectWhenUsingMoveCtorWhenInitWithPointer)
@@ -180,7 +180,7 @@ TEST_F(BookTest, ShouldInitObjectWhenUsingMoveCtorWhenInitWithPointer)
     EXPECT_EQ(oldDestroyedBook->getPublisher(), publisherChiltonBooks);
     EXPECT_EQ(oldDestroyedBook->getYearOfProduction(), year1965);
 
-    EXPECT_EQ(IDocument::productId_, productsIdCounter[0]);
+    EXPECT_EQ(Book::productId_, productsIdCounter[0]);
 
     delete diunaBook;
     delete oldDestroyedBook;
@@ -207,7 +207,7 @@ TEST_F(BookTest, ShouldInitObjectWhenUsingMoveAsignmentOperatorWhenInitWithPoint
     EXPECT_EQ(oldDestroyedBook->getPublisher(), publisherChiltonBooks);
     EXPECT_EQ(oldDestroyedBook->getYearOfProduction(), year1965);
 
-    EXPECT_EQ(IDocument::productId_, productsIdCounter[0]);
+    EXPECT_EQ(Book::productId_, productsIdCounter[0]);
 
     delete diunaBook;
     delete oldDestroyedBook;

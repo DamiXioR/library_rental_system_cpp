@@ -16,6 +16,10 @@
         --
         +Book(std::string title, std::string author, std::string literatureType, std::string publisher, std::string yearOfProduction);
         +Book(std::string documentId, std::string title, std::string author, std::string literatureType, std::string publisher, std::string yearOfProduction);
+        +Book(Book& anotherBook);
+        +Book(Book&& anotherBook);
+        +Book& operator=(Book& anotherBook);
+        +Book& operator=(Book&& anotherBook);
         +~Book() = default;
         ..
         +std::string getTitle() const;

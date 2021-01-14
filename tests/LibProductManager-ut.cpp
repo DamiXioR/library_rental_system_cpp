@@ -52,12 +52,12 @@ public:
 
     void resetProductId()
     {
-        IDocument::productId_ = 0;
+        Book::productId_ = 0;
     }
 
     void setProductId(unsigned productIdToSet)
     {
-        IDocument::productId_ = productIdToSet;
+        Book::productId_ = productIdToSet;
     }
 
     LibProductManager* libProdMan = new LibProductManager(productListInitWithTwoBooks);
@@ -82,11 +82,11 @@ TEST_F(LibProductManagerTest, ShouldLoadProductsToProductVector)
 
     libProdMan->getProductList()->emplace_back(new Book(idPanLodOgr, titlePanLodOgr, authorJaroslawGrzedowicz, typeSciFi, publisherFabrykaSlow, year2005));
     EXPECT_EQ(libProdMan->getProductList()->size(), productListSize[3]);
-    EXPECT_EQ(IDocument::productId_, productsIdCounter[2]);
+    EXPECT_EQ(Book::productId_, productsIdCounter[2]);
 
     libProdMan->getProductList()->emplace_back(new Book(idNation, titleNation, authorTerryPratchett, typeSciFi, publisherDoubleday, year2008));
     EXPECT_EQ(libProdMan->getProductList()->size(), productListSize[4]);
-    EXPECT_EQ(IDocument::productId_, productsIdCounter[2]);
+    EXPECT_EQ(Book::productId_, productsIdCounter[2]);
     
 }
 
@@ -96,11 +96,11 @@ TEST_F(LibProductManagerTest, ShouldAddNewBooksToProductVector)
 
     libProdMan->addNewBook(titlePanLodOgr, authorJaroslawGrzedowicz, typeSciFi, publisherFabrykaSlow, year2005);
     EXPECT_EQ(libProdMan->getProductList()->size(), productListSize[3]);
-    EXPECT_EQ(IDocument::productId_, productsIdCounter[3]);
+    EXPECT_EQ(Book::productId_, productsIdCounter[3]);
 
     libProdMan->addNewBook(titleNation, authorTerryPratchett, typeSciFi, publisherDoubleday, year2008);
     EXPECT_EQ(libProdMan->getProductList()->size(), productListSize[4]);
-    EXPECT_EQ(IDocument::productId_, productsIdCounter[4]);
+    EXPECT_EQ(Book::productId_, productsIdCounter[4]);
 }
 
 TEST_F(LibProductManagerTest, ShouldRemoveProductsFromProductVector)
