@@ -36,13 +36,13 @@ public:
     std::string publisherDoubleday = "Doubleday";
     std::string year2008 = "2008";
 
-    //Products container
+    //Books container
     std::vector<Book*>* bookListInitWithTwoBooks = new std::vector<Book*>{
         new Book(idDiuna, titleDiuna, authorFrankHerbert, typeSciFi, publisherChiltonBooks, year1965),
         new Book(idHyperion, titleHyperion, authorDanSimmons, typeSciFi, publisherAmber, year1989)
         };
 
-    //Product list size
+    //Books list size
     std::vector<unsigned> booksListSize{
         0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
 
