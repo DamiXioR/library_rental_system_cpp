@@ -1,23 +1,23 @@
 @startuml
     class IProductManager {
         --
-        +IProductManager(std::vector<IProduct*>* productList);
+        +IProductManager(std::vector<Book*>* allBooksInLibrary);
         +virtual ~IProductManager();
         ..
-        +virtual void checkProductList() = 0;
-        +std::vector<IProduct*>* getProductList() const;
+        +virtual void checkBooksList() = 0;
+        +std::vector<IProduct*>* getAllBooksInLibrary() const;
         --
-        -std::vector<IProduct*>* productList_{};
+        -std::vector<Book*>* allBooksInLibrary_{};
     }
 
     class LibProductManager {
         --
-        +LibProductManager(std::vector<IProduct*>* productList);
+        +LibProductManager(std::vector<Book*>* allBooksInLibrary);
         +~LibProductManager();
         ..
         +void addNewBook(std::string title, std::string author, std::string literatureType, std::string publisher, std::string yearOfProduction);
         +void removeBook(std::string productId);
-        +void checkProductList();
+        +void checkBooksList();
     }
 
     IProductManager -> LibProductManager
