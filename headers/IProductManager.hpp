@@ -14,7 +14,7 @@ public:
     IProductManager& operator=(IProductManager&& anotherProductManager) = delete;
     virtual ~IProductManager();
 
-    virtual void checkProductList() = 0;
+    virtual void checkBooksList() = 0;
     std::vector<Book*>* getAllBooksInLibrary() const
     {
         return allBooksInLibrary_;

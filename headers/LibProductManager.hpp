@@ -12,5 +12,5 @@ public:
 
     void addNewBook(std::string title, std::string author, std::string literatureType, std::string publisher, std::string yearOfProduction);
     void removeBook(std::string productId);
-    void checkProductList();
+    void checkBooksList();
 };

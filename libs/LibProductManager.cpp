@@ -27,7 +27,7 @@ void LibProductManager::removeBook(std::string productId)
     }
 }
 
-void LibProductManager::checkProductList()
+void LibProductManager::checkBooksList()
 {
     std::for_each(getAllBooksInLibrary()->begin(), getAllBooksInLibrary()->end(), [](Book* everyBook) {
         std::cout << everyBook->getTitle() << "\n";
