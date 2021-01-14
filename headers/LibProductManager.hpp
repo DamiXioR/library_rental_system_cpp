@@ -8,7 +8,7 @@ public:
     LibProductManager(LibProductManager&& anotherLibProductManager) = delete;
     LibProductManager& operator=(LibProductManager& anotherLibProductManager) = delete;
     LibProductManager& operator=(LibProductManager&& anotherLibProductManager) = delete;
-    ~LibProductManager();
+    ~LibProductManager() = default;
 
     void addNewBook(std::string title, std::string author, std::string literatureType, std::string publisher, std::string yearOfProduction);
     void removeBook(std::string productId);

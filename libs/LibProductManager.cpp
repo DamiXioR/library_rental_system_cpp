@@ -9,10 +9,6 @@ LibProductManager::LibProductManager(std::vector<IProduct*>* productList)
 {
 }
 
-LibProductManager::~LibProductManager()
-{
-}
-
 void LibProductManager::addNewBook(std::string title, std::string author, std::string literatureType, std::string publisher, std::string yearOfProduction)
 {
     productList_->emplace_back(new Book(title, author, literatureType, publisher, yearOfProduction));
