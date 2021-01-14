@@ -5,7 +5,7 @@
         +virtual ~IProductManager();
         ..
         +virtual void checkBooksList() = 0;
-        +std::vector<IProduct*>* getAllBooksInLibrary() const;
+        +std::vector<Book*>* getAllBooksInLibrary() const;
         --
         -std::vector<Book*>* allBooksInLibrary_{};
     }
