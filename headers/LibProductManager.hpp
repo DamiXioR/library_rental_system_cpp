@@ -3,7 +3,7 @@
 
 class LibProductManager : public IProductManager {
 public:
-    LibProductManager(std::vector<IProduct*>* productList);
+    LibProductManager(std::vector<Book*>* allBooksInLibrary);
     LibProductManager(LibProductManager& anotherLibProductManager) = delete;
     LibProductManager(LibProductManager&& anotherLibProductManager) = delete;
     LibProductManager& operator=(LibProductManager& anotherLibProductManager) = delete;

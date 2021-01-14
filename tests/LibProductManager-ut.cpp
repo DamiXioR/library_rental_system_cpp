@@ -37,7 +37,7 @@ public:
     std::string year2008 = "2008";
 
     //Products container
-    std::vector<IProduct*>* productListInitWithTwoBooks = new std::vector<IProduct*>{
+    std::vector<Book*>* productListInitWithTwoBooks = new std::vector<Book*>{
         new Book(idDiuna, titleDiuna, authorFrankHerbert, typeSciFi, publisherChiltonBooks, year1965),
         new Book(idHyperion, titleHyperion, authorDanSimmons, typeSciFi, publisherAmber, year1989)
         };

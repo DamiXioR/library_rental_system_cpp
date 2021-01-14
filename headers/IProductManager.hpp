@@ -3,10 +3,11 @@
 #include <string>
 #include <vector>
 #include "IProduct.hpp"
+#include "Book.hpp"
 
 class IProductManager {
 public:
-    IProductManager(std::vector<IProduct*>* productList);
+    IProductManager(std::vector<Book*>* allBooksInLibrary);
     IProductManager(IProductManager& anotherProductManager) = delete;
     IProductManager(IProductManager&& anotherProductManager) = delete;
     IProductManager& operator=(IProductManager& anotherProductManager) = delete;
@@ -14,11 +15,11 @@ public:
     virtual ~IProductManager();
 
     virtual void checkProductList() = 0;
-    std::vector<IProduct*>* getProductList() const
+    std::vector<Book*>* getProductList() const
     {
-        return productList_;
+        return allBooksInLibrary_;
     }
 
 protected:
-    std::vector<IProduct*>* productList_{};
+    std::vector<Book*>* allBooksInLibrary_{};
 };

@@ -1,14 +1,14 @@
 #include "IProductManager.hpp"
 
-IProductManager::IProductManager(std::vector<IProduct*>* productList)
-    : productList_(productList)
+IProductManager::IProductManager(std::vector<Book*>* allBooksInLibrary)
+    : allBooksInLibrary_(allBooksInLibrary)
 {
 }
 
 IProductManager::~IProductManager()
 {
-    for(auto& everyProduct : *productList_){
-        delete everyProduct;
+    for(auto& everyBook : *allBooksInLibrary_){
+        delete everyBook;
     }
-    delete productList_;
+    delete allBooksInLibrary_;
 }

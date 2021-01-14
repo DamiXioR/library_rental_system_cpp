@@ -4,25 +4,25 @@
 #include <algorithm>
 #include <iostream>
 
-LibProductManager::LibProductManager(std::vector<IProduct*>* productList)
-    : IProductManager(productList)
+LibProductManager::LibProductManager(std::vector<Book*>* allBooksInLibrary)
+    : IProductManager(allBooksInLibrary)
 {
 }
 
 void LibProductManager::addNewBook(std::string title, std::string author, std::string literatureType, std::string publisher, std::string yearOfProduction)
 {
-    productList_->emplace_back(new Book(title, author, literatureType, publisher, yearOfProduction));
+    allBooksInLibrary_->emplace_back(new Book(title, author, literatureType, publisher, yearOfProduction));
 }
 
 void LibProductManager::removeBook(std::string productId)
 {
-    if (!productList_->empty()) {
-        auto foundedAtPosition = std::find_if(productList_->begin(), productList_->end(), [productId](IProduct* everyProduct) {
+    if (!allBooksInLibrary_->empty()) {
+        auto foundedAtPosition = std::find_if(allBooksInLibrary_->begin(), allBooksInLibrary_->end(), [productId](IProduct* everyProduct) {
             return (everyProduct->getIndividualProductId() == productId);
         });
-        if (foundedAtPosition != productList_->end()) {
+        if (foundedAtPosition != allBooksInLibrary_->end()) {
             delete *foundedAtPosition;
-            productList_->erase(foundedAtPosition);
+            allBooksInLibrary_->erase(foundedAtPosition);
         }
     }
 }
