@@ -17,8 +17,8 @@ void LibProductManager::addNewBook(std::string title, std::string author, std::s
 void LibProductManager::removeBook(std::string productId)
 {
     if (!allBooksInLibrary_->empty()) {
-        auto foundedAtPosition = std::find_if(allBooksInLibrary_->begin(), allBooksInLibrary_->end(), [productId](IProduct* everyProduct) {
-            return (everyProduct->getIndividualProductId() == productId);
+        auto foundedAtPosition = std::find_if(allBooksInLibrary_->begin(), allBooksInLibrary_->end(), [productId](Book* everyBook) {
+            return (everyBook->getIndividualProductId() == productId);
         });
         if (foundedAtPosition != allBooksInLibrary_->end()) {
             delete *foundedAtPosition;
@@ -29,8 +29,7 @@ void LibProductManager::removeBook(std::string productId)
 
 void LibProductManager::checkProductList()
 {
-    std::for_each(getProductList()->begin(), getProductList()->end(), [](IProduct* everyProduct) {
-        IProduct* everyProductReader = everyProduct;
-        std::cout << everyProductReader->getIndividualProductId() << "\n";
+    std::for_each(getAllBooksInLibrary()->begin(), getAllBooksInLibrary()->end(), [](Book* everyBook) {
+        std::cout << everyBook->getTitle() << "\n";
     });
 }

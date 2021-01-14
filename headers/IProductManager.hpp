@@ -15,7 +15,7 @@ public:
     virtual ~IProductManager();
 
     virtual void checkProductList() = 0;
-    std::vector<Book*>* getProductList() const
+    std::vector<Book*>* getAllBooksInLibrary() const
     {
         return allBooksInLibrary_;
     }

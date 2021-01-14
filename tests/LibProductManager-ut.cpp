@@ -37,13 +37,13 @@ public:
     std::string year2008 = "2008";
 
     //Products container
-    std::vector<Book*>* productListInitWithTwoBooks = new std::vector<Book*>{
+    std::vector<Book*>* bookListInitWithTwoBooks = new std::vector<Book*>{
         new Book(idDiuna, titleDiuna, authorFrankHerbert, typeSciFi, publisherChiltonBooks, year1965),
         new Book(idHyperion, titleHyperion, authorDanSimmons, typeSciFi, publisherAmber, year1989)
         };
 
     //Product list size
-    std::vector<unsigned> productListSize{
+    std::vector<unsigned> booksListSize{
         0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
 
     //Product id
@@ -60,7 +60,7 @@ public:
         Book::productId_ = productIdToSet;
     }
 
-    LibProductManager* libProdMan = new LibProductManager(productListInitWithTwoBooks);
+    LibProductManager* libProdMan = new LibProductManager(bookListInitWithTwoBooks);
 
     ~LibProductManagerTest()
     {
@@ -71,43 +71,43 @@ public:
 TEST_F(LibProductManagerTest, ShouldLoadVectorOfIProducts)
 {
    
-    EXPECT_EQ(libProdMan->getProductList()->size(), productListSize[2]);
+    EXPECT_EQ(libProdMan->getAllBooksInLibrary()->size(), booksListSize[2]);
     
 }
 
 TEST_F(LibProductManagerTest, ShouldLoadProductsToProductVectorByUseCTorWithIdArgument)
 {
     
-    setProductId(productListSize[2]);
+    setProductId(booksListSize[2]);
 
-    libProdMan->getProductList()->emplace_back(new Book(idPanLodOgr, titlePanLodOgr, authorJaroslawGrzedowicz, typeSciFi, publisherFabrykaSlow, year2005));
-    EXPECT_EQ(libProdMan->getProductList()->size(), productListSize[3]);
+    libProdMan->getAllBooksInLibrary()->emplace_back(new Book(idPanLodOgr, titlePanLodOgr, authorJaroslawGrzedowicz, typeSciFi, publisherFabrykaSlow, year2005));
+    EXPECT_EQ(libProdMan->getAllBooksInLibrary()->size(), booksListSize[3]);
     EXPECT_EQ(Book::productId_, productsIdCounter[2]);
 
-    libProdMan->getProductList()->emplace_back(new Book(idNation, titleNation, authorTerryPratchett, typeSciFi, publisherDoubleday, year2008));
-    EXPECT_EQ(libProdMan->getProductList()->size(), productListSize[4]);
+    libProdMan->getAllBooksInLibrary()->emplace_back(new Book(idNation, titleNation, authorTerryPratchett, typeSciFi, publisherDoubleday, year2008));
+    EXPECT_EQ(libProdMan->getAllBooksInLibrary()->size(), booksListSize[4]);
     EXPECT_EQ(Book::productId_, productsIdCounter[2]);
     
 }
 
 TEST_F(LibProductManagerTest, ShouldAddNewBooksToProductVectorByUseCTorWithoutIdArgument)
 {
-    setProductId(productListSize[2]);
+    setProductId(booksListSize[2]);
 
     libProdMan->addNewBook(titlePanLodOgr, authorJaroslawGrzedowicz, typeSciFi, publisherFabrykaSlow, year2005);
-    EXPECT_EQ(libProdMan->getProductList()->size(), productListSize[3]);
+    EXPECT_EQ(libProdMan->getAllBooksInLibrary()->size(), booksListSize[3]);
     EXPECT_EQ(Book::productId_, productsIdCounter[3]);
 
     libProdMan->addNewBook(titleNation, authorTerryPratchett, typeSciFi, publisherDoubleday, year2008);
-    EXPECT_EQ(libProdMan->getProductList()->size(), productListSize[4]);
+    EXPECT_EQ(libProdMan->getAllBooksInLibrary()->size(), booksListSize[4]);
     EXPECT_EQ(Book::productId_, productsIdCounter[4]);
 }
 
 TEST_F(LibProductManagerTest, ShouldRemoveProductsFromProductVector)
 {
     libProdMan->removeBook(idHyperion);
-    EXPECT_EQ(libProdMan->getProductList()->size(), productListSize[1]);
+    EXPECT_EQ(libProdMan->getAllBooksInLibrary()->size(), booksListSize[1]);
 
     libProdMan->removeBook(idDiuna);
-    EXPECT_EQ(libProdMan->getProductList()->size(), productListSize[0]);
+    EXPECT_EQ(libProdMan->getAllBooksInLibrary()->size(), booksListSize[0]);
 }
