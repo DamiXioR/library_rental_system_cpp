@@ -75,7 +75,7 @@ TEST_F(LibProductManagerTest, ShouldLoadVectorOfIProducts)
     
 }
 
-TEST_F(LibProductManagerTest, ShouldLoadProductsToProductVector)
+TEST_F(LibProductManagerTest, ShouldLoadProductsToProductVectorByUseCTorWithIdArgument)
 {
     
     setProductId(productListSize[2]);
@@ -90,7 +90,7 @@ TEST_F(LibProductManagerTest, ShouldLoadProductsToProductVector)
     
 }
 
-TEST_F(LibProductManagerTest, ShouldAddNewBooksToProductVector)
+TEST_F(LibProductManagerTest, ShouldAddNewBooksToProductVectorByUseCTorWithoutIdArgument)
 {
     setProductId(productListSize[2]);
 
